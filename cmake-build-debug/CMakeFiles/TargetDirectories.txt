@@ -1,0 +1,3 @@
+C:/Users/home/CLionProjects/Advanced_Programing_Fall_24-25/cmake-build-debug/CMakeFiles/Advanced_Programing_Fall_24_25.dir
+C:/Users/home/CLionProjects/Advanced_Programing_Fall_24-25/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/home/CLionProjects/Advanced_Programing_Fall_24-25/cmake-build-debug/CMakeFiles/rebuild_cache.dir
