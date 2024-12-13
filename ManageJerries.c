@@ -2,14 +2,23 @@
 #include "Defs.h"
 #include<string.h>
 
+#include "Jerry.h"
+
 
 int main(void) {
-    int *royi;
-    ALLOCATE(royi, int, 5);
-    printf("%d\n", sizeof(royi));
+    Jerry *pJerry = (Jerry *) 0;
+    Origin origin;
+    Planet *pPlanet = (Planet *) 0;
+    CreatePlanet(&pPlanet, "Earth", 1, 2, 3);
+    Origin *pOrigin = (Origin *) 0;
+    PhysicalCharacteristics *pCharacteristics = (PhysicalCharacteristics *) 0;
+    PhysicalCharacteristics *pCharacteristics2 = (PhysicalCharacteristics *) 0;
+    CreateJerry(&pJerry, "1", 50, pPlanet, "Dimension", 2);
+    AddPhysicalCharacteristic(pJerry, "Height", 1.5);
+    AddPhysicalCharacteristic(pJerry, "Width", 1.5);
+    bool royi = HasPhysicalCharacteristic(pJerry, "Height");
 
-    REALLOCATE(royi, 1);
-    char str[] = "geeksforgeeks is the best";
-    //converting the given string into uppercase.
+    RemovePhysicalCharacteristic(pJerry, "Height");
+    Status status = PrintJerry(pJerry);
     return 0;
 }
