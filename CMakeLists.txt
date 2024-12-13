@@ -3,5 +3,6 @@ project(Advanced_Programing_Fall_24_25 C)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(Advanced_Programing_Fall_24_25 main.c
+add_executable(Advanced_Programing_Fall_24_25 ManageJerries.c
+        Jerry.c
 )
