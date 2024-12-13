@@ -4,14 +4,14 @@
 #include <string.h>
 #include "Defs.h"
 #include <stdio.h>
-
+#include <math.h>
 //typedef enum e_status { Success, Fail, FailRead, BadArg } Status;
 
 // Create Jerry
 Status CreateJerry(Jerry **pp_jerry, char *id, int happiness, Planet *p_planet, char *dimension,
                    int characteristics_size) {
     // Check if the arguments are valid
-    if (id == NULL || characteristics_size <= 0 || happiness > 100 || happiness <
+    if (id == NULL || characteristics_size < 0 || happiness > 100 || happiness <
         0) {
         return BadArg;
     }
@@ -25,13 +25,15 @@ Status CreateJerry(Jerry **pp_jerry, char *id, int happiness, Planet *p_planet, 
     CreateOrigin(&p_origin, p_planet, dimension);
     (*pp_jerry)->origin = p_origin;
     // Allocate memory for the characteristics
-    ALLOCATE((*pp_jerry)->characteristics, PhysicalCharacteristics, characteristics_size);
+    if (characteristics_size > 0) {
+        ALLOCATE((*pp_jerry)->characteristics, PhysicalCharacteristics, characteristics_size);
+    }
     (*pp_jerry)->characteristics_size = characteristics_size;
 
     return Success;
 }
 
-Status CreatePlanet(Planet **p_planet, char *name, int x, int y, int z) {
+Status CreatePlanet(Planet **p_planet, char *name, double x, double y, double z) {
     // Check if the arguments are valid
     if (name == NULL || x < 0 || y < 0 || z < 0) {
         return BadArg;
@@ -139,35 +141,77 @@ Status RemovePhysicalCharacteristic(Jerry *p_jerry, char *name) {
     return Success;
 }
 
-//Planet to string format
-static char* PlanetToString(Jerry *jerry) {
 
-    char *result;
-    char *PlantName = jerry->origin->planet->name;
-    char PlantX = jerry->origin->planet->x+'0';
-    char PlantY = jerry->origin->planet->y+'0';;
-    char PlantZ = jerry->origin->planet->z+'0';
-    sprintf(result, "%s", PlantName);
-    fprintf(result, "%c", PlantX);
-    return result;
-}
-
-Status PrintJerry(Jerry *jerry) {
+Status PrintJerry(Jerry *p_jerry) {
     // Check if the arguments are valid
-    if (jerry == NULL) {
+    if (p_jerry == NULL) {
         return BadArg;
     }
     // Print the Jerry
-    printf("Jerry , ID - %s : \n", jerry->id);
-    printf("Happiness level : %d\n", jerry->happiness);
-    printf("Origin : %s\n", jerry->origin->dimension);
-    printf("Planet : %s (%d,%d,%d)\n", jerry->origin->planet->name,jerry->origin->planet->x,jerry->origin->planet->y,jerry->origin->planet->z);
-    printf("Coordinates: (%d, %d, %d)\n", jerry->origin->planet->x, jerry->origin->planet->y, jerry->origin->planet->z);
-    printf("Characteristics:\n");
-    for (int i = 0; i < jerry->characteristics_size; i++) {
-        printf("Name: %s, Value: %lf\n", jerry->characteristics[i].name, jerry->characteristics[i].value);
+    printf("Jerry , ID - %s : \n", p_jerry->id);
+    printf("Happiness level : %d \n", p_jerry->happiness);
+    printf("Origin : %s \n", p_jerry->origin->dimension);
+    printf("Planet : %s (%.2f,%.2f,%.2f) \n", p_jerry->origin->planet->name, (p_jerry->origin->planet->x),
+           p_jerry->origin->planet->y, p_jerry->origin->planet->z);
+    // Print the characteristics
+    if(p_jerry->characteristics_size != 0){
+        printf("Jerry's physical Characteristics available : \n\t");
+        for (int i = 0; i < p_jerry->characteristics_size; i++) {
+            if(i<p_jerry->characteristics_size-1) {
+                printf("%s : %.2f , ", p_jerry->characteristics[i].name, p_jerry->characteristics[i].value);
+            }else{
+                printf("%s : %.2f ", p_jerry->characteristics[i].name, p_jerry->characteristics[i].value);
+            }
+        }
     }
     return Success;
 }
 
+Status DestroyPlanet(Planet *planet) {
+    // Check if the arguments are valid
+    if (planet == NULL) {
+        return BadArg;
+    }
+    // Free the planet
+    free(planet->name);
+    free(planet);
+    return Success;
+}
 
+Status DestroyPhysicalCharacteristic(PhysicalCharacteristics *characteristic) {
+    // Check if the arguments are valid
+    if (characteristic == NULL) {
+        return BadArg;
+    }
+    // Free the characteristic
+    free(characteristic->name);
+    free(characteristic);
+    return Success;
+}
+
+Status DestroyOrigin(Origin *origin) {
+    // Check if the arguments are valid
+    if (origin == NULL) {
+        return BadArg;
+    }
+    // Free the origin
+    free(origin->dimension);
+    free(origin);
+    return Success;
+}
+
+Status DestroyJerry(Jerry *jerry) {
+    // Check if the arguments are valid
+    if (jerry == NULL) {
+        return BadArg;
+    }
+    // Free the Jerry
+    free(jerry->id);
+    DestroyOrigin(jerry->origin);
+    for (int i = 0; i < jerry->characteristics_size; i++) {                  //here
+        DestroyPhysicalCharacteristic(&jerry->characteristics[i]);
+    }
+    free(jerry->characteristics);
+    free(jerry);
+    return Success;
+}

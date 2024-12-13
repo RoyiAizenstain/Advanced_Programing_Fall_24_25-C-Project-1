@@ -8,9 +8,9 @@
 // Planet
 typedef struct Planet_t {
     char *name;
-    int x;
-    int y;
-    int z;
+    double x;
+    double y;
+    double z;
 } Planet;
 
 // Origin
@@ -36,7 +36,7 @@ typedef struct JERRY_t {
 
 // Create functions
 Status CreateJerry(Jerry **pp_jerry, char *id, int happiness, Planet *p_planet, char *dimension, int characteristics_size);
-Status CreatePlanet(Planet **p_planet, char *name, int x, int y, int z);
+Status CreatePlanet(Planet **p_planet, char *name, double x, double y, double z);
 Status CreatePhysicalCharacteristic(PhysicalCharacteristics **pp_characteristic, char *name, double value);
 Status CreateOrigin(Origin **pp_origin, Planet *p_planet, char *dimension);
 
@@ -46,7 +46,7 @@ Status AddPhysicalCharacteristic(Jerry *p_jerry, char *name, double value);
 Status RemovePhysicalCharacteristic(Jerry *p_jerry, char *name);
 
 // Print functions
-Status PrintJerry(Jerry *jerry);
+Status PrintJerry(Jerry *p_jerry);
 Status PrintPlanet(Planet *planet);
 
 // Destroy functions
