@@ -1,0 +1,3 @@
+/mnt/c/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/cmake-build-wsl-profile/CMakeFiles/Advanced_Programing_Fall_24_25.dir
+/mnt/c/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/cmake-build-wsl-profile/CMakeFiles/edit_cache.dir
+/mnt/c/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/cmake-build-wsl-profile/CMakeFiles/rebuild_cache.dir
