@@ -11,8 +11,7 @@ int main(void) {
     Planet *pPlanet = (Planet *) 0;
     CreatePlanet(&pPlanet, "Earth", 123.10,8392.00,99.20);
     Origin *pOrigin = (Origin *) 0;
-    PhysicalCharacteristics *pCharacteristics = (PhysicalCharacteristics *) 0;
-    PhysicalCharacteristics *pCharacteristics2 = (PhysicalCharacteristics *) 0;
+
     CreateJerry(&pJerry, "23dF21", 50, pPlanet, "C-137", 2);
     AddPhysicalCharacteristic(pJerry, "Height", 166.20);
     AddPhysicalCharacteristic(pJerry, "LimbsNumber", 4.00);
@@ -20,9 +19,12 @@ int main(void) {
     bool royi = HasPhysicalCharacteristic(pJerry, "Height");
 
     Status status = PrintJerry(pJerry);
-    //RemovePhysicalCharacteristic(pJerry, "Height");
+
+    RemovePhysicalCharacteristic(pJerry, "Height");
     //AddPhysicalCharacteristic(pJerry, "Height", 1.5);
+    status = PrintJerry(pJerry);
 
     DestroyJerry(pJerry);
+    DestroyPlanet(pPlanet);
     return 0;
 }

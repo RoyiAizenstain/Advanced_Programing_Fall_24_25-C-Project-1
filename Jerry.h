@@ -30,7 +30,7 @@ typedef struct JERRY_t {
     char *id;
     int happiness;
     Origin *origin;
-    PhysicalCharacteristics *characteristics;    // not sure
+    PhysicalCharacteristics **characteristics;    // not sure
     int characteristics_size;
 } Jerry;
 
