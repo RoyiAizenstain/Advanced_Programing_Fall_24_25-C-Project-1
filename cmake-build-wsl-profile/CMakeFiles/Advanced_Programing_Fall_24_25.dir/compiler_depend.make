@@ -75,6 +75,7 @@ CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.o: /mnt/c/Users/u2
   /mnt/c/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/Defs.h \
   /mnt/c/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/Jerry.h \
   /usr/include/alloca.h \
+  /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
@@ -217,6 +218,8 @@ CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.o: /mnt/c/Users/u2
 /usr/include/string.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/ctype.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
