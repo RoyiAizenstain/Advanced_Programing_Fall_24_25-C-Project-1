@@ -31,7 +31,7 @@ int main(void) {
 */
 //Read planet line
 static Status ReadPlanetLine(char *line, Planet **pp_planet) {
-    if(line == NULL || pp_planet == NULL) {
+    if (line == NULL || pp_planet == NULL) {
         return FailRead;
     }
     char name[300];
@@ -49,7 +49,7 @@ static Status ReadPlanetLine(char *line, Planet **pp_planet) {
 
 //find planet in planets
 static Planet *findPlanet(char *name, Planet **planets, int size) {
-    if( name == NULL || *planets == NULL) {
+    if (name == NULL || *planets == NULL) {
         return NULL;
     }
     for (int i = 0; i < size; i++) {
@@ -60,9 +60,23 @@ static Planet *findPlanet(char *name, Planet **planets, int size) {
     return NULL;
 }
 
+//find jerry in jerries
+static Jerry *findJerry(char *id, Jerry **jerries, int size) {
+    if (id == NULL || *jerries == NULL) {
+        return NULL;
+    }
+    for (int i = 0; i < size; i++) {;
+        if (strcmp(jerries[i]->id, id) == 0) {
+            return jerries[i];
+        }
+
+    }
+    return NULL;
+}
+
 //Read jerry line
 static Status ReadJerry(char *line, Jerry **pp_jerry, Planet **pp_planet, int numberOfPlanets) {
-    if(line == NULL || pp_jerry == NULL || pp_planet == NULL ) {
+    if (line == NULL || pp_jerry == NULL || pp_planet == NULL) {
         return FailRead;
     }
     char id[300];
@@ -79,6 +93,7 @@ static Status ReadJerry(char *line, Jerry **pp_jerry, Planet **pp_planet, int nu
     return Success;
 }
 
+//Read physical characteristics line
 static Status ReadPhysicalCharacteristicsLine(char *line, Jerry *p_jerry) {
     if (line == NULL || p_jerry == NULL) {
         return FailRead;
@@ -101,6 +116,111 @@ static Status ReadPhysicalCharacteristicsLine(char *line, Jerry *p_jerry) {
     return Success;
 }
 
+//print manu
+static void PrintManu() {
+    char choice[300];
+    printf("AW JEEZ RICK, what do you want to do now ? \n");
+    printf("1 : Print all Jerries \n");
+    printf("2 : Print all Planets \n");
+    printf("3 : Add physical characteristic to Jerry \n");
+    printf("4 : Remove physical characteristic from Jerry \n");
+    printf("5 : Print Jerries by a planet \n");
+    printf("6 : Print Jerries by a physical characteristic \n");
+    printf("7 : Go home \n");
+}
+
+static bool ValidInput(char *input) {
+    if (strcmp(input, "1") == 0 || strcmp(input, "2") == 0 || strcmp(input, "3") == 0 || strcmp(input, "4") == 0 ||
+        strcmp(input, "5") == 0 || strcmp(input, "6") == 0 || strcmp(input, "7") == 0) {
+        return True;
+    }
+    return False;
+}
+
+//print all jerries
+static void PrintAllJerries(Jerry **jerries, int size) {
+    //loop through all jerries
+    for (int i = 0; i < size; i++) {
+        PrintJerry(jerries[i]);
+    }
+}
+
+//print all planets
+static PrintAllPlanets(Planet **planets, int size) {
+    //loop through all planets
+    for (int i = 0; i < size; i++) {
+        PrintPlanet(planets[i]);
+    }
+}
+
+//check if jerry has physical characteristic
+void to_upper(char * temp) {
+    //loop through all characters
+    for (int i = 0; temp[i] != '\0'; i++) {
+        //if character is lower case
+        if (temp[i] >= 'a' && temp[i] <= 'z') {
+            temp[i] = temp[i] - 32;
+        }
+    }
+}
+
+static AddPCToJerrr(Jerry **jerries, int size) {
+    char id[300];
+    //get jerry id
+    printf("What is your Jerry's ID ? \n");
+    scanf("%s", id);
+    //find jerry
+    Jerry *jerry = findJerry(id, jerries, size);
+    //if jerry not found
+    if (jerry == NULL) {
+        printf("OH NO! I CAN'T FIND HIM RICK ! \n");
+    } else {
+        //get physical characteristic name
+        printf("What physical characteristic can you add to Jerry - %s ? \n", jerry->id);
+        char name[300];
+        scanf("%s", name);
+        //if physical characteristic already exists
+        if (HasPhysicalCharacteristic(jerry, name)) {
+            to_upper(name);
+            printf("RICK I ALREADY KNOW HIS %s! \n", name);
+        }else{
+            //add physical characteristic
+            printf("What is the value of %s ? \n", name);
+            double value;
+            scanf("%lf", &value);
+            AddPhysicalCharacteristic(jerry, name, value);
+        }
+
+    }
+}
+
+static RemovePCToJerrr(Jerry **jerries, int size) {
+    char id[300];
+    //get jerry id
+    printf("What is your Jerry's ID ? \n");
+    scanf("%s", id);
+    //find jerry
+    Jerry *jerry = findJerry(id, jerries, size);
+    //if jerry not found
+    if (jerry == NULL) {
+        printf("OH NO! I CAN'T FIND HIM RICK ! \n");
+    } else {
+        //get physical characteristic name
+        printf("What physical characteristic do you want to remove from Jerry - %s ? \n", jerry->id);
+        char name[300];
+        scanf("%s", name);
+        //if physical characteristic already exists
+        if (!HasPhysicalCharacteristic(jerry, name)) {
+            to_upper(name);
+            printf("RICK I DON'T KNOW HIS %s ! \n", name);
+        }else{
+            //add physical characteristic
+            RemovePhysicalCharacteristic(jerry, name);
+            PrintJerry(jerry);
+        }
+
+    }
+}
 
 int main(int argc, char *argv[]) {
     int NumberOfPlanets = atoi(argv[1]);
@@ -108,6 +228,7 @@ int main(int argc, char *argv[]) {
 
     Planet *planets[NumberOfPlanets];
     Jerry *jerries[NumberOfJerries];
+
 
     FILE *file = fopen(argv[3], "r");
     char chunk[300];
@@ -147,17 +268,39 @@ int main(int argc, char *argv[]) {
         // stream if the file cannot be opened.
         fprintf(stderr, "Unable to open file!\n");
     }
-    PrintJerry(jerries[0]);
-    PrintJerry(jerries[1]);
-    PrintJerry(jerries[2]);
-    PrintJerry(jerries[3]);
+
+    char id[300];
+    while (True) {
+        PrintManu();
+        char choice[300];
+        scanf("%s", choice);
+        if (ValidInput(choice)) {
+            int todo = atoi(choice);
+            switch (todo) {
+                case 1:
+                    PrintAllJerries(jerries, NumberOfJerries);
+                    break;
+                case 2:
+                    PrintAllPlanets(planets, NumberOfPlanets);
+                    break;
+                case 3:
+                    AddPCToJerrr(jerries, NumberOfJerries);
+                    break;
+                case 4:
+                    RemovePCToJerrr(jerries, NumberOfJerries);
+                    break;
+            }
+        } else {
+            printf("RICK WE DON'T HAVE TIME FOR YOUR GAMES ! \n");
+        }
+    }
 
     // Destroy all the planets
-    for(int i = 0; i < NumberOfJerries; i++) {
+    for (int i = 0; i < NumberOfJerries; i++) {
         DestroyJerry(jerries[i]);
     }
     //Destroy all Jerries
-    for(int i = 0; i < NumberOfPlanets; i++) {
+    for (int i = 0; i < NumberOfPlanets; i++) {
         DestroyPlanet(planets[i]);
     }
 

@@ -12,7 +12,7 @@ typedef enum e_status { Success, Fail, FailRead, BadArg } Status;
 // Allocate memory for a variable of type
 #define ALLOCATE(var, type, size) \
     if ((var = (type*)malloc(sizeof(type)*size)) == NULL) { \
-        fprintf(stderr, "Memory allocation failed\n"); \
+        fprintf(stdout, "Memory Problem\n"); \
         return Fail; \
    }
 
@@ -20,6 +20,7 @@ typedef enum e_status { Success, Fail, FailRead, BadArg } Status;
 #define REALLOCATE(var, size)\
     void* ptr_new; \
     if ((ptr_new = realloc(var, sizeof(typeof(*var))*size)) == NULL) { \
+        fprintf(stdout, "Memory Problem\n"); \
         return Fail; \
    } var = ptr_new;\
    ptr_new = NULL;
