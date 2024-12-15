@@ -88,10 +88,13 @@ static Status ReadPhysicalCharacteristicsLine(char *line, Jerry *p_jerry) {
 
     //read each value separated by comma
     char *name = strstr(temp, "\t");
+    //skip white spaces
     while (isspace(*name))
         ++name;
+    //read each value separated by :
     strtok(temp, ":");
     char *value = strtok(NULL, ":");
+    //skip white spaces
     strtok(value, "\r\n");
     //add physical characteristic
     AddPhysicalCharacteristic(p_jerry, name, atof(value));
