@@ -109,8 +109,18 @@ Status AddPhysicalCharacteristic(Jerry *p_jerry, char *name, double value) {
         }
     }
     // Reallocate memory for the characteristics
-    REALLOCATE(p_jerry->characteristics, p_jerry->characteristics_size + 1);
+    // Reallocate memory for the characteristics
+    if (p_jerry->characteristics_size == 0) {
+        ALLOCATE(p_jerry->characteristics, PhysicalCharacteristics *, 1);
+    }
+    else {
+ //       REALLOCATE(p_jerry->characteristics, p_jerry->characteristics_size + 1);
+        PhysicalCharacteristics **p_temp;
+        p_temp =( PhysicalCharacteristics ** ) realloc(p_jerry->characteristics, sizeof(PhysicalCharacteristics *) * (p_jerry->characteristics_size + 1));
+        p_jerry->characteristics=p_temp;
+    }
     p_jerry->characteristics_size++;
+
     p_jerry->characteristics[p_jerry->characteristics_size - 1] = characteristic;
     return Success;
 }

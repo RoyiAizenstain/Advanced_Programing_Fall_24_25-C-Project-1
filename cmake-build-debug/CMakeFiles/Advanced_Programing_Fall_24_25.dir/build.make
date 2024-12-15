@@ -52,10 +52,10 @@ RM = "D:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25
+CMAKE_SOURCE_DIR = C:\Users\u2\CLionProjects\new
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\u2\CLionProjects\new\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Advanced_Programing_Fall_24_25.dir/depend.make
@@ -69,32 +69,32 @@ include CMakeFiles/Advanced_Programing_Fall_24_25.dir/progress.make
 include CMakeFiles/Advanced_Programing_Fall_24_25.dir/flags.make
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: CMakeFiles/Advanced_Programing_Fall_24_25.dir/flags.make
-CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: C:/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/ManageJerries.c
+CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: C:/Users/u2/CLionProjects/new/ManageJerries.c
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: CMakeFiles/Advanced_Programing_Fall_24_25.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj -MF CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.obj.d -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.obj -c C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\ManageJerries.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\u2\CLionProjects\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj"
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj -MF CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.obj.d -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.obj -c C:\Users\u2\CLionProjects\new\ManageJerries.c
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.i"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\ManageJerries.c > CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.i
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\u2\CLionProjects\new\ManageJerries.c > CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.i
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.s"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\ManageJerries.c -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.s
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\u2\CLionProjects\new\ManageJerries.c -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\ManageJerries.c.s
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj: CMakeFiles/Advanced_Programing_Fall_24_25.dir/flags.make
-CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj: C:/Users/u2/CLionProjects/Advanced_Programing_Fall_24_25/Jerry.c
+CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj: C:/Users/u2/CLionProjects/new/Jerry.c
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj: CMakeFiles/Advanced_Programing_Fall_24_25.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj -MF CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.obj.d -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.obj -c C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\Jerry.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\u2\CLionProjects\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj"
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.obj -MF CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.obj.d -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.obj -c C:\Users\u2\CLionProjects\new\Jerry.c
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.i"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\Jerry.c > CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.i
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\u2\CLionProjects\new\Jerry.c > CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.i
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Advanced_Programing_Fall_24_25.dir/Jerry.c.s"
-	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\Jerry.c -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.s
+	"D:\Program Files\JetBrains\CLion 2024.2.2\bin\mingw\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\u2\CLionProjects\new\Jerry.c -o CMakeFiles\Advanced_Programing_Fall_24_25.dir\Jerry.c.s
 
 # Object files for target Advanced_Programing_Fall_24_25
 Advanced_Programing_Fall_24_25_OBJECTS = \
@@ -110,7 +110,7 @@ Advanced_Programing_Fall_24_25.exe: CMakeFiles/Advanced_Programing_Fall_24_25.di
 Advanced_Programing_Fall_24_25.exe: CMakeFiles/Advanced_Programing_Fall_24_25.dir/linkLibs.rsp
 Advanced_Programing_Fall_24_25.exe: CMakeFiles/Advanced_Programing_Fall_24_25.dir/objects1.rsp
 Advanced_Programing_Fall_24_25.exe: CMakeFiles/Advanced_Programing_Fall_24_25.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Advanced_Programing_Fall_24_25.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\u2\CLionProjects\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Advanced_Programing_Fall_24_25.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Advanced_Programing_Fall_24_25.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/Advanced_Programing_Fall_24_25.dir/clean:
 .PHONY : CMakeFiles/Advanced_Programing_Fall_24_25.dir/clean
 
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25 C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25 C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\cmake-build-debug\CMakeFiles\Advanced_Programing_Fall_24_25.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\u2\CLionProjects\new C:\Users\u2\CLionProjects\new C:\Users\u2\CLionProjects\new\cmake-build-debug C:\Users\u2\CLionProjects\new\cmake-build-debug C:\Users\u2\CLionProjects\new\cmake-build-debug\CMakeFiles\Advanced_Programing_Fall_24_25.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Advanced_Programing_Fall_24_25.dir/depend
 

@@ -4,32 +4,7 @@
 #include "Jerry.h"
 #include <ctype.h>
 
-/*
-int main(void) {
-    Jerry *pJerry = (Jerry *) 0;
-    Origin origin;
-    Planet *pPlanet = (Planet *) 0;
-    CreatePlanet(&pPlanet, "Earth", 123.10,8392.00,99.20);
-    Origin *pOrigin = (Origin *) 0;
 
-    CreateJerry(&pJerry, "23dF21", 50, pPlanet, "C-137", 2);
-    AddPhysicalCharacteristic(pJerry, "Height", 166.20);
-    AddPhysicalCharacteristic(pJerry, "LimbsNumber", 4.00);
-    //AddPhysicalCharacteristic(pJerry, "Weight", 80.00);
-    bool royi = HasPhysicalCharacteristic(pJerry, "Height");
-
-    Status status = PrintJerry(pJerry);
-
-    RemovePhysicalCharacteristic(pJerry, "Height");
-    //AddPhysicalCharacteristic(pJerry, "Height", 1.5);
-    status = PrintJerry(pJerry);
-
-    DestroyJerry(pJerry);
-    DestroyPlanet(pPlanet);
-    return 0;
-}
-*/
-//Read planet line
 
 
 //find planet in planets
@@ -144,7 +119,9 @@ static bool ValidInput(char *input) {
 static void PrintAllJerries(Jerry **jerries, int size) {
     //loop through all jerries
     for (int i = 0; i < size; i++) {
-        PrintJerry(jerries[i]);
+        if (jerries[i] != NULL) {
+            PrintJerry(jerries[i]);
+        }
     }
 }
 
@@ -285,9 +262,17 @@ int main(int argc, char *argv[]) {
     int NumberOfPlanets = atoi(argv[1]);
     int NumberOfJerries = atoi(argv[2]);
 
+    int IsError=0;
+
     // Create the planets and the Jerries
     Planet *planets[NumberOfPlanets];
     Jerry *jerries[NumberOfJerries];
+    for (int i = 0; i < NumberOfPlanets; i++) {
+        planets[i] = NULL;
+    }
+    for (int i = 0; i < NumberOfJerries; i++) {
+        jerries[i] = NULL;
+    }
 
     //allocate status initialize
     Status allocate_status = Success;
@@ -304,6 +289,9 @@ int main(int argc, char *argv[]) {
                 for (int i = 0; i < NumberOfPlanets; i++) {
                     fgets(chunk, sizeof(chunk), file);
                     allocate_status = ReadPlanetLine(chunk, &planets[i]);
+                    if (allocate_status != 0) {
+                        IsError = 1;
+                    }
                 }
             }
             // Read each line from the file and store it in the
@@ -313,11 +301,17 @@ int main(int argc, char *argv[]) {
                 for (int i = 0; i < NumberOfJerries; i++) {
                     // Print each line to the standard output.
                     allocate_status = ReadJerry(chunk, &jerries[i], planets, NumberOfPlanets);
+                    if (allocate_status != 0) {
+                        IsError = 1;
+                    }
                     Jerry *p_lastjerry = jerries[i];
                     fgets(chunk, sizeof(chunk), file);
                     //Read physical characteristics
                     while (chunk[0] == '\t') {
                         allocate_status = ReadPhysicalCharacteristicsLine(chunk, p_lastjerry);
+                        if (allocate_status != 0) {
+                            IsError = 1;
+                        }
                         if (fgets(chunk, sizeof(chunk), file) == NULL) {
                             break;
                         }
@@ -336,7 +330,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Check if the allocation was successful
-    if(allocate_status != 0) {
+    if(IsError == 1) {
         for (int i = 0; i < NumberOfJerries; i++) {
             DestroyJerry(jerries[i]);
         }
@@ -346,12 +340,10 @@ int main(int argc, char *argv[]) {
         }
         exit(1);
     }
-
-    char id[300];
+    char choice[300];
     //loop manu
     while (True) {
         PrintManu();
-        char choice[300];
         scanf("%s", choice);
         if (ValidInput(choice)) {
             int todo = atoi(choice);
@@ -365,9 +357,15 @@ int main(int argc, char *argv[]) {
                     break;
                 case 3:
                     allocate_status = PrintAddPCToJerry(jerries, NumberOfJerries);
+                    if (allocate_status != 0) {
+                        IsError = 1;
+                    }
                     break;
                 case 4:
                     allocate_status = PrintRemovePCToJerrr(jerries, NumberOfJerries);
+                    if (allocate_status != 0) {
+                        IsError = 1;
+                    }
                     break;
                 case 5:
                     PrintJerriesByPlanet(jerries, NumberOfJerries, planets, NumberOfPlanets);
@@ -390,7 +388,7 @@ int main(int argc, char *argv[]) {
         } else {
             printf("RICK WE DON'T HAVE TIME FOR YOUR GAMES ! \n");
         }
-        if(allocate_status != 0) {
+        if(IsError == 1) {
             for (int i = 0; i < NumberOfJerries; i++) {
                 DestroyJerry(jerries[i]);
             }

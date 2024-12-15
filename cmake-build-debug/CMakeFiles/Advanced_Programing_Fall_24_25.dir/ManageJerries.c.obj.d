@@ -1,5 +1,5 @@
 CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: \
- C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\ManageJerries.c \
+ C:\Users\u2\CLionProjects\new\ManageJerries.c \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -11,7 +11,7 @@ CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\Defs.h \
+ C:\Users\u2\CLionProjects\new\Defs.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stdlib.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
@@ -24,4 +24,5 @@ CMakeFiles/Advanced_Programing_Fall_24_25.dir/ManageJerries.c.obj: \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/errno.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/string.h \
  D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:\Users\u2\CLionProjects\Advanced_Programing_Fall_24_25\Jerry.h
+ C:\Users\u2\CLionProjects\new\Jerry.h \
+ D:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/ctype.h
