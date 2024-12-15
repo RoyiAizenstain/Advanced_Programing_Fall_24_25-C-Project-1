@@ -355,6 +355,7 @@ int main(int argc, char *argv[]) {
         scanf("%s", choice);
         if (ValidInput(choice)) {
             int todo = atoi(choice);
+            // Switch case for Task to-do the menu
             switch (todo) {
                 case 1:
                     PrintAllJerries(jerries, NumberOfJerries);
